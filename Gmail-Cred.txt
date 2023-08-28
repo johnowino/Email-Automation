@@ -1,0 +1,39 @@
+"Gmail_Cred"
+
+cuojyfftqjnedppa
+
+23.8.0-beta.13817+Branch.release-v23.8.0.Sha.120cd3ec54f082511b48105e2cfb52f8897346a8
+
+Source: Send SMTP Mail Message
+
+Message: 5.7.3 STARTTLS is required to send mail [JNAP275CA0037.ZAFP275.PROD.OUTLOOK.COM 2023-08-28T12:02:49.473Z 08DBA5E27AC08804]
+
+Exception Type: MailKit.Net.Smtp.SmtpCommandException
+
+MailKit.Net.Smtp.SmtpCommandException: 5.7.3 STARTTLS is required to send mail [JNAP275CA0037.ZAFP275.PROD.OUTLOOK.COM 2023-08-28T12:02:49.473Z 08DBA5E27AC08804]   at MailKit.Net.Smtp.SmtpClient.OnSenderNotAccepted(MimeMessage message, MailboxAddress mailbox, SmtpResponse response) in D:\src\MailKit\MailKit\Net\Smtp\SmtpClient.cs:line 1979
+   at MailKit.Net.Smtp.SmtpClient.ProcessMailFromResponse(MimeMessage message, MailboxAddress mailbox, SmtpResponse response) in D:\src\MailKit\MailKit\Net\Smtp\SmtpClient.cs:line 1992
+   at MailKit.Net.Smtp.SmtpClient.FlushCommandQueueAsync(MimeMessage message, MailboxAddress sender, IList`1 recipients, Boolean doAsync, CancellationToken cancellationToken) in D:\src\MailKit\MailKit\Net\Smtp\SmtpClient.cs:line 623
+   at MailKit.Net.Smtp.SmtpClient.SendAsync(FormatOptions options, MimeMessage message, MailboxAddress sender, IList`1 recipients, Boolean doAsync, CancellationToken cancellationToken, ITransferProgress progress) in D:\src\MailKit\MailKit\Net\Smtp\SmtpClient.cs:line 2548
+   at MailKit.Net.Smtp.SmtpClient.SendAsync(FormatOptions options, MimeMessage message, MailboxAddress sender, IList`1 recipients, Boolean doAsync, CancellationToken cancellationToken, ITransferProgress progress) in D:\src\MailKit\MailKit\Net\Smtp\SmtpClient.cs:line 2565
+   at MailKit.Net.Smtp.SmtpClient.Send(FormatOptions options, MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress) in D:\src\MailKit\MailKit\Net\Smtp\SmtpClient.cs:line 2643
+   at MailKit.MailTransport.Send(MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress) in D:\src\MailKit\MailKit\MailTransport.cs:line 120
+   at UiPath.Mail.MimeMailService.SendSMTPMail(MimeMessage mimemessage, UserSettings userSettings, ServerSettings serverSettings, SecureSocketEncryption secureConnection, CancellationToken cancellationToken, Boolean authenticateFirst)
+   at UiPath.Mail.MimeMailService.SendSMTPMail(MailMessage mailMessage, UserSettings userSettings, Receiver receiver, ServerSettings serverSettings, SecureSocketEncryption secureConnection, List`1 attachments, CancellationToken ct, Boolean isNewMessage, String body)
+   at UiPath.Mail.SMTP.Activities.SendMail.<>c__DisplayClass66_0.<SendMailTask>b__0()
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at UiPath.Mail.SMTP.Activities.SendMail.SendMailTask(AsyncCodeActivityContext context, Receiver receiver, MailMessage mailMessage, CancellationToken cancellationToken, Boolean isNewMessage, String body)
+   at UiPath.Mail.Activities.Extensions.TaskExtensions.TimeoutAfter(Task task, Int32 timeoutMs)
+   at UiPath.Mail.Activities.SendMailActivity.ExecuteAsync(AsyncCodeActivityContext context, CancellationToken cancellationToken)
+   at UiPath.Shared.Activities.AsyncTaskCodeActivityImplementation.EndExecute(AsyncCodeActivityContext context, IAsyncResult result)
+   at UiPath.Shared.Activities.AsyncTaskCodeActivity.EndExecute(AsyncCodeActivityContext context, IAsyncResult result)
+   at UiPath.Shared.Activities.ContinuableAsyncCodeActivity.EndExecute(AsyncCodeActivityContext context, IAsyncResult result)
+   at UiPath.Mail.Activities.BaseMailContinuableAsyncActivity.EndExecute(AsyncCodeActivityContext context, IAsyncResult result)
+   at UiPath.Mail.SMTP.Activities.SendMail.EndExecute(AsyncCodeActivityContext context, IAsyncResult result)
+   at System.Activities.AsyncCodeActivity.System.Activities.IAsyncCodeActivity.FinishExecution(AsyncCodeActivityContext context, IAsyncResult result)
+   at System.Activities.AsyncCodeActivity.CompleteAsyncCodeActivityData.CompleteAsyncCodeActivityWorkItem.Execute(ActivityExecutor executor, BookmarkManager bookmarkManager)
